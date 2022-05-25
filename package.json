@@ -1,0 +1,21 @@
+{
+  "name": "js-native-blog",
+  "version": "1.0.0",
+  "description": "js native blog",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run start"
+  },
+  "keywords": [
+    "js",
+    "blog",
+    "javascript"
+  ],
+  "author": "Alex Bond",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
+  }
+}
