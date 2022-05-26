@@ -11,7 +11,7 @@ export class CreatePostComponent extends Component {
 		this.$el.addEventListener('submit', submitHandler.bind(this))
 		this.form = new Form(this.$el, {
 			title: [Validators.required],
-			fulltext: [Validators.required, Validators.minLength(15)],
+			fulltext: [Validators.required, Validators.minLength(5)],
 		})
 	}
 }
@@ -23,8 +23,7 @@ function submitHandler(event) {
 			type: this.$el.type.value,
 			...this.form.value()
 		}
+		this.form.clearForm()
 		console.log(formData)
-	} else {
-		console.log('field is required')
 	}
 }
