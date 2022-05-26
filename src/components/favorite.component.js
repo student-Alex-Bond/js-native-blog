@@ -1,6 +1,7 @@
 import {Component} from '../core/component'
 import {apiService} from "../services/api.service";
 import {renderPost} from "../templates/post.template";
+import {TransformService} from "../services/transform.service";
 
 
 export class FavoriteComponent extends Component {
@@ -18,16 +19,17 @@ export class FavoriteComponent extends Component {
 		const html = renderList(favorites)
 		this.$el.insertAdjacentHTML('afterbegin', html)
 	}
+
 	onHide() {
 		this.$el.innerHTML = ''
 	}
 }
 
 function renderList(list = []) {
-	if (list.length) {
+	if (list && list.length) {
 		return `
 		<ul>
-			${list.map(item => `<li><a class="js-link" href="#">${item}</a></li>`).join(' ')}
+			${list.map(item => `<li><a class="js-link" href="#" data-id="${item.id}">${item.title}</a></li>`).join(' ')}
 		</ul>
 		`
 	}
@@ -37,7 +39,7 @@ function renderList(list = []) {
 async function linkClickHandler(event) {
 	event.preventDefault()
 	if (event.target.classList.contains('js-link')) {
-		const postId = event.target.textContent
+		const postId = event.target.dataset.id
 		this.$el.innerHTML = ''
 		this.loader.show()
 		const post = await apiService.asyncFetchPostById(postId)
