@@ -1,7 +1,7 @@
 import {Component} from '../core/component'
 import {apiService} from '../services/api.service'
 import {TransformService} from '../services/transform.service'
-import {renderPost} from "../templates/post.template";
+import {renderPost } from "../templates/post.template";
 
 export class PostsComponent extends Component {
 	constructor(id, {loader}) {
