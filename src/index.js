@@ -3,12 +3,15 @@ import {NavigationComponent} from './components/navigation.component'
 import {CreatePostComponent} from './components/createPost.component'
 import {PostsComponent} from "./components/posts.component";
 import {FavoriteComponent} from "./components/favorite.component";
+import {LoaderComponent} from "./components/loader.component";
 
 new HeaderComponent('header')
 
 const navigation = new NavigationComponent('navigation')
+const loader = new LoaderComponent('loader')
+
 const createPost = new CreatePostComponent('create')
-const posts = new PostsComponent('posts')
+const posts = new PostsComponent('posts', {loader})
 const favorite = new FavoriteComponent('favorite')
 
 navigation.registerTabs([
